@@ -1,0 +1,142 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(128, 243, 120);
+  }
+  
+  header {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  header h1 {
+    margin: 0;
+  }
+
+h3{
+    font-style: auto;
+    position: relative;
+    left: 25px;
+    color:rgb(12, 102, 12);
+}
+  
+  header form {
+    display: flex;
+    align-items: center;
+  }
+  
+  header input[type="text"] {
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-right: 10px;
+  }
+  
+  header button[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  #book-covers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  
+  .book-cover img{
+    width: auto;
+    height: 220px;
+    margin: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 5px #ccc;
+    overflow: hidden;
+  }
+  
+  
+  footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+
+
+  .scroll-down-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .scroll-down-button {
+        bottom: 80px;
+    }
+}
+  
+
+.book-shelf {
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.book-row {
+    display: flex;
+    align-items: flex-end; 
+}
+
+.book {
+    flex: 0 0 auto;
+    margin: 0 5px;
+    display: inline-block;
+    
+}
+
+.book img {
+    width: 140px; 
+    height: auto; 
+    
+}
+
+.scroll-button-container {
+    display: flex;
+    align-items: center;
+}
+
+.scroll-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.scroll-button:hover {
+    background-color: #0056b3;
+}
