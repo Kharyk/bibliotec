@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', path='/stylecode.css') }}" rel="stylesheet">
+    <title>Book</title>
+</head>
+
+
+    <body>
+        <header>
+          <h1>Welcome to our Library!</h1>
+          <form action="/search" method="get">
+            <input type="text" name="q" placeholder="Search for a book..." />
+            <button type="submit">Search</button>
+          </form>
+        </header>
+    <main>
+        <button class="scroll-down-button" onclick="scrollToBottom()">Scroll Down</button>
+        <h3> Recommended for reading:</h3>
+        <div class="book-shelf">
+        
+            <div class="book"><img src="static/images/horor_1.jpg" alt="Book 1" /></div>
+    
+            <div class="book"><img src="static/images/horor_2.jpg" alt="Book 2" /></div>
+    
+              <div class="book">
+                <img src="static/images/comedy_1.jpeg" alt="Book 3" />
+              </div>
+              <div class="book">
+                <img src="static/images/book_4.webp" alt="Book 4" />
+              </div>
+              <div class="book">
+                <img src="static/images/horor_1.jpg" alt="Book 5" />
+              </div>
+              <div class="book">
+                <img src="static/images/horor_2.jpg" alt="Book 6" />
+              </div>
+              <div class="book">
+                <img src="static/images/comedy_1.jpeg" alt="Book 7" />
+              </div>
+              <div class="book">
+                <img src="static/images/book_4.webp" alt="Book 8" />
+              </div>
+              <div class="book">
+                <img src="static/images/horor_1.jpg" alt="Book 9" />
+              </div>
+              <div class="book">
+                <img src="static/images/horor_2.jpg" alt="Book 10" />
+              </div>
+              <div class="book">
+                <img src="static/images/comedy_1.jpeg" alt="Book 11" />
+              </div>
+              <div class="book">
+                <img src="static/images/book_4.webp" alt="Book 12" />
+              </div>
+            
+        </div>
+        <script src="moving.js"></script>
+
+
+        {% if search_results %}
+    <h2>Search Results:</h2>
+    <ul>
+        {% for book in search_results %}
+        <li>{{ book.name }} by {{ book.author }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <h2>All Books:</h2>
+    <ul>
+        {% for book in books %}
+        <li>
+            {{ book.name }} by {{ book.author }} ({{ book.year }}) - {{ book.pages }} pages
+            {% if book.genre %}
+            <ul>
+                {% for genre in book.genre %}
+                <li>{{ genre }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Add a new book:</h2>
+    <form action="/add_book" method="post">
+        <label for="name">Name:</label>
+        <input type="text" name="name" required>
+        <br>
+        <label for="author">Author:</label>
+        <input type="text" name="author" required>
+        <br>
+        <label for="genre">Genre (comma-separated):</label>
+        <input type="text" name="genre" required>
+        <br>
+        <label for="year">Year:</label>
+        <input type="number" name="year" required>
+        <br>
+        <label for="pages">Pages:</label>
+        <input type="number" name="pages" required>
+        <br>
+        <button type="submit">Add Book</button>
+    </form>
+
+    <h2>Remove a book:</h2>
+    <form action="/remove" method="delete">
+        <label for="name">Name:</label>
+        <input type="text" name="name" required>
+        <br>
+        <button type="submit">Remove Book</button>
+    </form>
+
+    </main>
+        <footer>
+          <p>&copy; Read what you want and what wants you.</p>
+        </footer>
+    
+        
+      </body>
+    <!-- <div class="quates">
+        <h1>Read what you want!</h1>
+    </div>
+
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search for a book...">
+        <button onclick="searchBooks()">Search</button>
+    </div>
+
+    <div class="book-shelf">
+        
+        <div class="book"><img src="static/images/horor_1.jpg" alt="Book 1" /></div>
+
+        <div class="book"><img src="static/images/horor_2.jpg" alt="Book 2" /></div>
+
+          <div class="book">
+            <img src="static/images/comedy_1.jpeg" alt="Book 3" />
+          </div>
+          <div class="book">
+            <img src="static/images/book_4.webp" alt="Book 4" />
+          </div>
+          <div class="book">
+            <img src="static/images/horor_1.jpg" alt="Book 5" />
+          </div>
+          <div class="book">
+            <img src="static/images/horor_2.jpg" alt="Book 6" />
+          </div>
+          <div class="book">
+            <img src="static/images/comedy_1.jpeg" alt="Book 7" />
+          </div>
+          <div class="book">
+            <img src="static/images/book_4.webp" alt="Book 8" />
+          </div>
+          <div class="book">
+            <img src="static/images/horor_1.jpg" alt="Book 9" />
+          </div>
+          <div class="book">
+            <img src="static/images/horor_2.jpg" alt="Book 10" />
+          </div>
+          <div class="book">
+            <img src="static/images/comedy_1.jpeg" alt="Book 11" />
+          </div>
+          <div class="book">
+            <img src="static/images/book_4.webp" alt="Book 12" />
+          </div>
+        
+    </div>
+
+  
+</html>
+
