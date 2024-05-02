@@ -10,6 +10,8 @@ from fastapi import Query
 
 
 
+
+
 app = FastAPI(title="Read your favorite Book ")
 books = []
 
